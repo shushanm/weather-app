@@ -9,6 +9,9 @@ const forecast = require('./utils/forecast')
 
 const app = express()
 
+//Heroku PORT 
+const port = process.env.PORT || 3000
+
 //handling static files(public dir)
 const publicDirectoryPath = path.join(__dirname, '../public')
 app.use(express.static(publicDirectoryPath))
@@ -96,6 +99,6 @@ app.get('*', (req, res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log('Server is up and running on port 3000')
+app.listen(port, () => {
+    console.log('Server is up and running on port ' + port)
 })
